@@ -42,7 +42,16 @@ func carry(character):
 				
 				playerCarringThisTile = character
 				playerCarringThisTile.tileBeingCarried = self
-				get_tree().call_group("Gamestate", "flipOrangeCarryingStatus") # keeps the knowledge if orange is carrying something in synced with gamestate
-				print(get_tree().call_group("Gamestate", "flipOrangeCarryingStatus")) 
+				#get_tree().call_group("Gamestate", "flipOrangeCarryingStatus") # keeps the knowledge if orange is carrying something in synced with gamestate
+				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
+				#print(get_node("/root/Gamestate").isOrangeCarryingTile)
+				
+			else: # IF PLAYER IS WITHIN BOUNDS BUT NOT CARRYING
+				print("Is ExampleTile being carried? :" + str(isBeingCarried))
+				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
+	else: # IF PLAYER IS NOT WITHIN BOUNDS
+		isBeingCarried = false
+		get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
+		print("Is ExampleTile being carried? :" + str(isBeingCarried))
 func _on_ExampleTile_body_entered(body):
 	pass # Replace with function body.

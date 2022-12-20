@@ -1,0 +1,9 @@
+Godot Engine v3.4.5.stable.fedora.f9ac000d5 - https://godotengine.org
+OpenGL ES 3.0 Renderer: NVIDIA GeForce RTX 3080/PCIe/SSE2
+OpenGL ES Batching: ON
+ 
+ERROR: Condition "default_certs != nullptr" is true.
+   at: load_default_certificates (modules/mbedtls/crypto_mbedtls.cpp:314) - Condition "default_certs != nullptr" is true.
+ERROR: Error opening file '/home/croldfish/GodotProjects/HoppyDays/icon.png'.
+   at: load_image (core/io/image_loader.cpp:55) - Error opening file '/home/croldfish/GodotProjects/HoppyDays/icon.png'.
+Editing project: /home/croldfish/repos/TileTurmoilDevelopment/Tile Turmoil but my code is hopefully working (::home::croldfish::repos::TileTurmoilDevelopment::Tile Turmoil but my code is hopefully working)

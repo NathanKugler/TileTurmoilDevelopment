@@ -35,6 +35,7 @@ func carry():
 		get_tree().call_group("Tile","carry", self) 
 		get_tree().call_group("TileSlot", "checkIfTileIsOnTileSlot", self) 
 		
+		
 	
 		
 		

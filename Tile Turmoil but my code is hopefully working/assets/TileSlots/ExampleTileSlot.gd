@@ -17,7 +17,7 @@ func checkIfTileIsOnTileSlot(characterInQuestion):
 	if characterInQuestion.position.x <= position.x + detectionRange && characterInQuestion.position.x >= position.x - detectionRange:
 		if characterInQuestion.position.y <= position.x + detectionRange &&  characterInQuestion.position.y >= position.y - detectionRange:
 			if get_node("/root/Gamestate").isOrangeCarryingTile == false:
-				print("here")
+				characterInQuestion.tileBeingCarried.position = position
 				#get_node("/root/Orange").tileBeingCarried.position = position
 			#get_tree().call_group()
 
