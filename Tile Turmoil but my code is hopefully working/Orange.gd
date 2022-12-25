@@ -6,7 +6,11 @@ const PlayerId = 0
 
 onready var isCarryingTile
 onready var tileBeingCarried
+onready var currentTileSlotOrangeIsOn # stores the id value
 var movement = Vector2(0,0)
+
+func _ready():
+	add_to_group("Orange")
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
@@ -35,7 +39,8 @@ func carry():
 		get_tree().call_group("Tile","carry", self) 
 		get_tree().call_group("TileSlot", "checkIfTileIsOnTileSlot", self) 
 		
-		
+func setCurrentTileSlotOrangeIsOn(tileSlotID):
+	currentTileSlotOrangeIsOn = tileSlotID
 	
 		
 		

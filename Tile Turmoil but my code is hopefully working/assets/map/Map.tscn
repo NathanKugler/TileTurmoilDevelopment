@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/characters/Orange.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/ExampleTile/ExampleTile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/TileSlots/ExampleTileSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/TileSlots/TileSlot1.tscn" type="PackedScene" id=4]
 
 [node name="Map" type="Node2D"]
 
 [node name="ExampleTileSlot" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1068, 998 )
+
+[node name="TileSlot1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 122, 934 )
 
 [node name="ExampleTile" parent="." instance=ExtResource( 2 )]
 position = Vector2( 451, 317 )
