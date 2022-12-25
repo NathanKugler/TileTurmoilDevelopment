@@ -16,12 +16,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	isBeingCarried = get_node("/root/Gamestate").isOrangeCarryingTile #keeping in sync
 	if isBeingCarried:
 		get_tree().call_group("Gamestate", "orangeIsCarrying")
 		position = playerCarringThisTile.position
 	else:
 		get_tree().call_group("Gamestate", "orangeIsNotCarrying")
-		playerCarringThisTile = 0 # Null can't be put here so I put in 0 to represent no player
+		#playerCarringThisTile = 0 # Null can't be put here so I put in 0 to represent no player
 
 func carry(character):
 	# what all of this shit does:
@@ -32,19 +33,13 @@ func carry(character):
 	if character.position.x <= position.x + detectionRange && character.position.x >= position.x - detectionRange:
 		if character.position.y <= position.x + detectionRange &&  character.position.y >= position.y - detectionRange:
 			isBeingCarried = !isBeingCarried
-			if isBeingCarried:	
-	#			print("Character x: " + str(character.position.x) + " ExampileTile x: " + str(self.position.x))
-	#			print("Character y: " + str(character.position.y) + " ExampileTile y: " + str(self.position.y))
-
-			
+			if isBeingCarried:
 				print("Is ExampleTile being carried? :" + str(isBeingCarried))
-				
 				
 				playerCarringThisTile = character
 				playerCarringThisTile.tileBeingCarried = self
-				#get_tree().call_group("Gamestate", "flipOrangeCarryingStatus") # keeps the knowledge if orange is carrying something in synced with gamestate
+				
 				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
-				#print(get_node("/root/Gamestate").isOrangeCarryingTile)
 				
 			else: # IF PLAYER IS WITHIN BOUNDS BUT NOT CARRYING
 				print("Is ExampleTile being carried? :" + str(isBeingCarried))

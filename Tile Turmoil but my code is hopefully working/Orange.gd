@@ -6,7 +6,7 @@ const PlayerId = 0
 
 onready var isCarryingTile
 onready var tileBeingCarried
-onready var currentTileSlotOrangeIsOn # stores the id value
+var currentTileSlotOrangeIsOn = 0 # stores the id value for the tileslot, not the tileslot itself
 var movement = Vector2(0,0)
 
 func _ready():
