@@ -20,7 +20,7 @@ func _physics_process(delta):
 	apply_speed()
 	
 	move_and_slide(movement)
-	isCarryingTile = get_node("/root/Gamestate").isOrangeCarryingTile
+	isCarryingTile = get_node("/root/Gamestate").isOrangeCarryingTile[0]
 
 func apply_speed():
 	if Input.is_action_pressed("orange_right"):
