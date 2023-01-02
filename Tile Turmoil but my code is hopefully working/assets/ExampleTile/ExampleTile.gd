@@ -5,6 +5,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 var isBeingCarried = false
+const ID = 0
 onready var playerCarringThisTile 
 
 const detectionRange = 237 # also the resolution of the image  
@@ -25,7 +26,7 @@ func _process(delta):
 		#playerCarringThisTile = 0 # Null can't be put here so I put in 0 to represent no player
 
 func carry(character):
-	# what all of this shit does:
+	# what all of this does:
 	# first, when the player presses the carry key, then execusion goes here
 	# second, the character's position is compared to the tile's position. If the character lays within the bounds of the tile, then it proceeds
 	# third, if the player is in bounds, then the tile switches being carried. So if the tile was being carried before, now it isn't. If the tile WASN'T being carried before, now it is.
@@ -43,23 +44,19 @@ func carry(character):
 				
 			else: # IF PLAYER IS WITHIN BOUNDS BUT NOT CARRYING
 				print("Is ExampleTile being carried? :" + str(isBeingCarried))
-<<<<<<< HEAD
+
 				playerCarringThisTile = character
 				get_node("/root/Gamestate").isOrangeCarryingTile = [isBeingCarried,0]
-	else: # IF PLAYER IS NOT WITHIN BOUNDS
-		isBeingCarried = false
-		playerCarringThisTile = character
-		get_node("/root/Gamestate").isOrangeCarryingTile = [isBeingCarried,0]
-		print("Is ExampleTile  being carried? :" + str(isBeingCarried))
-
-
-
-=======
-				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
+		else: # IF PLAYER IS NOT WITHIN BOUNDS
+			isBeingCarried = false
+			playerCarringThisTile = character
+			get_node("/root/Gamestate").isOrangeCarryingTile = [isBeingCarried,0]
+			print("Is ExampleTile  being carried? :" + str(isBeingCarried))
+			get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
 	else: # IF PLAYER IS NOT WITHIN BOUNDS
 		isBeingCarried = false
 		get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
 		print("Is ExampleTile being carried? :" + str(isBeingCarried))
 func _on_ExampleTile_body_entered(body):
 	pass # Replace with function body.
->>>>>>> parent of 0a11656 (There is a bug: a tile thinks that it is the only one. so basically, if orange is carrying a tile, the tile doesn't check to see if it is being carried, it only checks to see if orange is carying a tile. so what that means is that both tiles move with each other when picked up or something. Also, Tile1 is not reaching carry() at any point.)
+
