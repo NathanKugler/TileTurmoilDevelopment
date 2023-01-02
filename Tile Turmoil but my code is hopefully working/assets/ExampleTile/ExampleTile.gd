@@ -4,7 +4,6 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const ID = 0
 var isBeingCarried = false
 onready var playerCarringThisTile 
 
@@ -35,7 +34,7 @@ func carry(character):
 		if character.position.y <= position.x + detectionRange &&  character.position.y >= position.y - detectionRange:
 			isBeingCarried = !isBeingCarried
 			if isBeingCarried:
-				print("Is ExampleTile  being carried? :" + str(isBeingCarried))
+				print("Is ExampleTile being carried? :" + str(isBeingCarried))
 				
 				playerCarringThisTile = character
 				playerCarringThisTile.tileBeingCarried = self
@@ -44,13 +43,10 @@ func carry(character):
 				
 			else: # IF PLAYER IS WITHIN BOUNDS BUT NOT CARRYING
 				print("Is ExampleTile being carried? :" + str(isBeingCarried))
-				playerCarringThisTile = character
 				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
 	else: # IF PLAYER IS NOT WITHIN BOUNDS
 		isBeingCarried = false
-		playerCarringThisTile = character
 		get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
-		print("Is ExampleTile  being carried? :" + str(isBeingCarried))
-
-
-
+		print("Is ExampleTile being carried? :" + str(isBeingCarried))
+func _on_ExampleTile_body_entered(body):
+	pass # Replace with function body.
