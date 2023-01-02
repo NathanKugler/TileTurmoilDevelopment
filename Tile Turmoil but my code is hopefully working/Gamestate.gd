@@ -1,6 +1,6 @@
 extends Node
 
-var isOrangeCarryingTile = [false, -1]
+var isOrangeCarryingTile = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,12 +12,13 @@ func _ready():
 	add_to_group("Gamestate")
 	#cool
 func orangeIsCarrying():
-	isOrangeCarryingTile = [true, isOrangeCarryingTile[1]]
+	isOrangeCarryingTile = true
 	
 func orangeIsNotCarrying():
-	isOrangeCarryingTile = [false, -1]
+	isOrangeCarryingTile = false
 	
-
+func flipOrangeCarryingStatus():
+	isOrangeCarryingTile = !isOrangeCarryingTile
 	
 
 	
