@@ -4,7 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const ID = 0
+const ID = 1
 var isBeingCarried = false
 onready var playerCarringThisTile 
 
@@ -17,7 +17,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	isBeingCarried = get_node("/root/Gamestate").isOrangeCarryingTile[0] #keeping in sync
+	isBeingCarried = get_node("/root/Gamestate").isOrangeCarryingTile #keeping in sync
 	if isBeingCarried:
 		get_tree().call_group("Gamestate", "orangeIsCarrying")
 		position = playerCarringThisTile.position
@@ -35,22 +35,22 @@ func carry(character):
 		if character.position.y <= position.x + detectionRange &&  character.position.y >= position.y - detectionRange:
 			isBeingCarried = !isBeingCarried
 			if isBeingCarried:
-				print("Is ExampleTile  being carried? :" + str(isBeingCarried))
+				print("Is Tile1 being carried? :" + str(isBeingCarried))
 				
 				playerCarringThisTile = character
 				playerCarringThisTile.tileBeingCarried = self
 				
-				get_node("/root/Gamestate").isOrangeCarryingTile = [isBeingCarried, ID]
+				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
 				
 			else: # IF PLAYER IS WITHIN BOUNDS BUT NOT CARRYING
-				print("Is ExampleTile being carried? :" + str(isBeingCarried))
+				print("Is Tile1 being carried? :" + str(isBeingCarried))
 				playerCarringThisTile = character
-				get_node("/root/Gamestate").isOrangeCarryingTile = [isBeingCarried,0]
+				get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
 	else: # IF PLAYER IS NOT WITHIN BOUNDS
 		isBeingCarried = false
 		playerCarringThisTile = character
-		get_node("/root/Gamestate").isOrangeCarryingTile = [isBeingCarried,0]
-		print("Is ExampleTile  being carried? :" + str(isBeingCarried))
-
-
-
+		get_node("/root/Gamestate").isOrangeCarryingTile = isBeingCarried
+		print("Is Tile1 being carried? :" + str(isBeingCarried))
+		
+func _on_Tile1_body_entered(body):
+	pass # Replace with function body.
