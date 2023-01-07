@@ -15,12 +15,19 @@ func _process(delta):
 
 func checkIfTileIsOnTileSlot(characterInQuestion):
 	if characterInQuestion.position.x <= position.x + detectionRange && characterInQuestion.position.x >= position.x - detectionRange:
-		if characterInQuestion.position.y <= position.x + detectionRange &&  characterInQuestion.position.y >= position.y - detectionRange:
-			if get_node("/root/Gamestate").isOrangeCarryingTile == false:
-				characterInQuestion.tileBeingCarried.position = position
-				#get_node("/root/Orange").tileBeingCarried.position = position
-			#get_tree().call_group()
+		if characterInQuestion.position.y <= position.y + detectionRange &&  characterInQuestion.position.y >= position.y - detectionRange:
+			if characterInQuestion.currentTileSlotOrangeIsOn == ID:
+				if get_node("/root/Gamestate").isOrangeCarryingTile[0] == true:
+					get_node("/root/Gamestate").orangeIsNotCarrying()
+					characterInQuestion.tileBeingCarried.position = position
+				elif get_node("/root/Gamestate").isOrangeCarryingTile[0] == false: 
+					get_node("/root/Gamestate").orangeIsCarrying(characterInQuestion.tileBeingCarried)
 
 func _on_ExampleTileSlot_area_entered(area):
-	print(area)
+	pass
 	
+
+
+func _on_ExampleTileSlot_body_entered(body):
+	if body.currentTileSlotOrangeIsOn > -1: #to verify that it is orange in question
+		get_tree().call_group("Orange", "setCurrentTileSlotOrangeIsOn", ID)

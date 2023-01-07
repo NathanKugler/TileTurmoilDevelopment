@@ -1,6 +1,6 @@
 extends Node
 
-var isOrangeCarryingTile = false
+var isOrangeCarryingTile = [false,-1]
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,12 +10,17 @@ var isOrangeCarryingTile = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Gamestate")
+	
+	
 	#cool
-func orangeIsCarrying():
-	isOrangeCarryingTile = true
+func orangeIsCarrying(tile):
+	isOrangeCarryingTile[0] = true
+	isOrangeCarryingTile[1] = tile.ID
+	print(tile.ID)
 	
 func orangeIsNotCarrying():
-	isOrangeCarryingTile = false
+	isOrangeCarryingTile[0] = false
+	isOrangeCarryingTile[1] = -1
 	
 func flipOrangeCarryingStatus():
 	isOrangeCarryingTile = !isOrangeCarryingTile
