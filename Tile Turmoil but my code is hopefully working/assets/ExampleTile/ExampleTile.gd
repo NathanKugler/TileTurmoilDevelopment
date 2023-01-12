@@ -17,6 +17,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print("am i being carried: " + str(isBeingCarried))
 	isBeingCarried = get_node("/root/Gamestate").isOrangeCarryingTile[0] #keeping in sync
 	if isBeingCarried:
 		get_tree().call_group("Gamestate", "orangeIsCarrying")
