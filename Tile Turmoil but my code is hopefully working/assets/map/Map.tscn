@@ -14,7 +14,7 @@ visible = false
 position = Vector2( 1068, 998 )
 
 [node name="TileSlot1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 122, 934 )
+position = Vector2( 955, 722 )
 
 [node name="ExampleTile" parent="." instance=ExtResource( 2 )]
 position = Vector2( 451, 317 )

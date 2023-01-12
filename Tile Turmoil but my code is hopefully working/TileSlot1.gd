@@ -9,9 +9,6 @@ func _ready():
 	
 func _process(delta):
 	pass
-#	if Input.is_action_just_pressed("TileSlotTestActionThingKey"):
-#		monitoring = true
-#		print("h")
 
 func checkIfTileIsOnTileSlot(characterInQuestion):
 	if characterInQuestion.position.x <= position.x + detectionRange && characterInQuestion.position.x >= position.x - detectionRange:

@@ -36,8 +36,9 @@ func apply_speed():
 
 func carry():
 	if Input.is_action_just_pressed("orange_pick_up"):
-		get_tree().call_group("Tile","carry", self) 
 		get_tree().call_group("TileSlot", "checkIfTileIsOnTileSlot", self) 
+		get_tree().call_group("Tile","carry", self) 
+		
 		
 func setCurrentTileSlotOrangeIsOn(tileSlotID):
 	currentTileSlotOrangeIsOn = tileSlotID
