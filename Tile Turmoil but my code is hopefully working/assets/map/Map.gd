@@ -3,16 +3,15 @@ extends Node2D
 
 # This file is for handling multiple tiles and tileslots
 
-
-
+var rng = RandomNumberGenerator.new()
+# makes copies of the tileslots
 func _ready():
-#	var importer = ResourceImporter.new()
-#	importer.import("res://assets/map/Map.tscn","res://assets/ExampleTile/ExampleTile.tscn")
-#
-#	var duplicated_scene = load("res://assets/ExampleTile/ExampleTile.tscn")
-#	get_tree().add_child(duplicated_scene)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+	var tileslotscene = load("res://assets/TileSlots/TileSlotParent/TileSlotParent.tscn")
+	for _i in 2:
+		rng.randomize()
+		var TileSlot = tileslotscene.instance()
+		add_child(TileSlot)	
+		TileSlot.ID = _i
+		TileSlot.position.x = rng.randi_range(0,500)
+		TileSlot.position.y = rng.randi_range(0,500)
 	pass

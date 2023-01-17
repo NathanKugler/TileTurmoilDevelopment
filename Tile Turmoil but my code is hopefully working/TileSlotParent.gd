@@ -1,14 +1,16 @@
 extends Area2D
 
-export var ID = 1
+export var ID = 0
 const detectionRange = 237
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("TileSlot")
 	monitoring = true
 	
+		
 func _process(delta):
-	pass
+	print(ID)
+	print(position)
 
 func checkIfTileIsOnTileSlot(characterInQuestion):
 	if characterInQuestion.position.x <= position.x + detectionRange && characterInQuestion.position.x >= position.x - detectionRange:
