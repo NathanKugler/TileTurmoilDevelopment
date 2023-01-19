@@ -3,15 +3,17 @@ extends Node2D
 
 # This file is for handling multiple tiles and tileslots
 
-var rng = RandomNumberGenerator.new()
+var tileSlotOffset = Vector2(448,-1052)
+const tileSlotCount = 16
 # makes copies of the tileslots
 func _ready():
 	var tileslotscene = load("res://assets/TileSlots/TileSlotParent/TileSlotParent.tscn")
-	for _i in 2:
-		rng.randomize()
+	for _i in 4:
 		var TileSlot = tileslotscene.instance()
 		add_child(TileSlot)	
 		TileSlot.ID = _i
-		TileSlot.position.x = rng.randi_range(0,500)
-		TileSlot.position.y = rng.randi_range(0,500)
+		TileSlot.position = tileSlotOffset
+		tileSlotOffset.x += 448
+		
+		
 	pass

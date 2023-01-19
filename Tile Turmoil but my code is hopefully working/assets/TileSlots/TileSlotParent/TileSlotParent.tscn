@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://TileSlotParent.gd" type="Script" id=1]
-[ext_resource path="res://assets/TileSlots/th-3433233470.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/TileSlots/TileSlotTemplate.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 160.678, 57.8755 )
+extents = Vector2( 86.7799, 31.2576 )
 
 [node name="TileSlotParent" type="Area2D"]
 script = ExtResource( 1 )
@@ -13,7 +13,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.33786e-06, -3.21865e-06 )
+position = Vector2( 3.8147e-06, 3.8147e-06 )
 rotation = -3.14159
 scale = Vector2( 1.475, 4.095 )
 shape = SubResource( 1 )

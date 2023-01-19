@@ -17,7 +17,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("am i being carried: " + str(isBeingCarried))
 	isBeingCarried = get_node("/root/Gamestate").isOrangeCarryingTile[0] #keeping in sync
 	if isBeingCarried:
 		get_tree().call_group("Gamestate", "orangeIsCarrying")
@@ -36,7 +35,6 @@ func carry(character):
 		if character.position.y <= position.x + detectionRange &&  character.position.y >= position.y - detectionRange:
 			isBeingCarried = !isBeingCarried
 			if isBeingCarried:
-				print("Is ExampleTile being carried? :" + str(isBeingCarried))
 				
 				playerCarringThisTile = character
 				playerCarringThisTile.tileBeingCarried = self
@@ -44,11 +42,10 @@ func carry(character):
 				get_node("/root/Gamestate").isOrangeCarryingTile[0] = isBeingCarried
 				
 			else: # IF PLAYER IS WITHIN BOUNDS BUT NOT CARRYING
-				print("Is ExampleTile being carried? :" + str(isBeingCarried))
+				
 				get_node("/root/Gamestate").isOrangeCarryingTile[0] = isBeingCarried
 	else: # IF PLAYER IS NOT WITHIN BOUNDS
 		isBeingCarried = false
 		get_node("/root/Gamestate").isOrangeCarryingTile[0] = isBeingCarried
-		print("Is ExampleTile being carried? :" + str(isBeingCarried))
 func _on_ExampleTile_body_entered(body):
 	pass # Replace with function body.
