@@ -1,4 +1,4 @@
-# TileTurmoilDevelopment
+# TileTurmoilDevelopment (Currently paused, i got bored)
 ## The development repository for Tile Turmoil
 
 ![How everthing is going to be arranged](https://i.imgur.com/dr6nYfw.png)
